@@ -12,13 +12,15 @@ const quotes =[
 app.listen(3000, ()=>{
 
     app.get('/',(req, res)=>{
-        res.send('Welcome to the homepage Cutiee!!');
+        res.send('Welcome to the homepage Cutiee!! up on the URL use /quote or /quotes');
     });
     app.get('/quotes',(req, res)=>{
-        res.send('Welcome to the about page Cutiee!!');
+        res.json(quotes);
     });
     app.get('/quote',(req, res)=>{
-        res.send('Welcome to the about page Cutiee!!');
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        res.json(quotes[randomIndex]);
+
     });
     
-})
+});
